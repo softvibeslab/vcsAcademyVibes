@@ -2,6 +2,7 @@
   "name": "vcsavibes",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "VCSAVibes - Complementary platform to VCSA",
   "scripts": {
     "dev": "vite",
@@ -11,12 +12,19 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css}\""
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "axios": "^1.15.0",
+    "framer-motion": "^12.38.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "react-router-dom": "^6.22.0"
+    "react-router-dom": "^6.30.3",
+    "recharts": "^3.8.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.2.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.9",
+    "tailwindcss": "^4.2.2",
     "vite": "^5.1.0"
   }
 }
