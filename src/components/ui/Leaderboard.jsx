@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { TrophyIcon, MedalIcon, AwardIcon } from '@heroicons/react/24/outline';
+import { TrophyIcon } from '@heroicons/react/24/outline';
 
 export default function Leaderboard({ data = [] }) {
   const leaderboardData = data.length > 0 ? data : [
@@ -15,8 +15,8 @@ export default function Leaderboard({ data = [] }) {
 
   const getRankIcon = (rank) => {
     if (rank === 1) return <TrophyIcon className="h-5 w-5 text-gold" />;
-    if (rank === 2) return <MedalIcon className="h-5 w-5 text-gray-400" />;
-    if (rank === 3) return <AwardIcon className="h-5 w-5 text-amber-700" />;
+    if (rank === 2) return <TrophyIcon className="h-5 w-5 text-gray-400" />;
+    if (rank === 3) return <TrophyIcon className="h-5 w-5 text-amber-700" />;
     return <span className="text-text-secondary font-medium">#{rank}</span>;
   };
 

@@ -11,7 +11,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import { TrendingUpIcon, TrendingDownIcon, DocumentArrowDownIcon } from '@heroicons/react/24/outline';
+import { ArrowUpIcon, ArrowDownIcon, DocumentArrowDownIcon } from '@heroicons/react/24/outline';
 
 export default function PerformanceTrends() {
   const [chartType, setChartType] = useState('line');
@@ -111,9 +111,9 @@ export default function PerformanceTrends() {
               metric.trend === 'up' ? 'text-green-400' : 'text-red-400'
             }`}>
               {metric.trend === 'up' ? (
-                <TrendingUpIcon className="h-3 w-3 mr-1" />
+                <ArrowUpIcon className="h-3 w-3 mr-1" />
               ) : (
-                <TrendingDownIcon className="h-3 w-3 mr-1" />
+                <ArrowDownIcon className="h-3 w-3 mr-1" />
               )}
               <span>{Math.abs(metric.change)}%</span>
             </div>

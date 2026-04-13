@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FilterIcon } from '@heroicons/react/24/outline';
+import { FunnelIcon } from '@heroicons/react/24/outline';
 import EventCard from '@/components/ui/EventCard';
 import EventCalendar from '@/components/ui/EventCalendar';
 
@@ -175,7 +175,7 @@ export default function CoachingPage() {
         <div className="lg:col-span-2 space-y-6">
           {/* Filters */}
           <div className="flex items-center space-x-2 overflow-x-auto pb-2">
-            <FilterIcon className="h-5 w-5 text-text-secondary flex-shrink-0" />
+            <FunnelIcon className="h-5 w-5 text-text-secondary flex-shrink-0" />
             {filters.map((filter) => (
               <button
                 key={filter.value}

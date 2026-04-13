@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUpIcon, TrendingDownIcon } from '@heroicons/react/24/outline';
+import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/outline';
 import CommissionCalculator from '@/components/ui/CommissionCalculator';
 import IncomeBreakdown from '@/components/ui/IncomeBreakdown';
 import SavingsGoalTracker from '@/components/ui/SavingsGoalTracker';
@@ -125,9 +125,9 @@ export default function FinancialPlannerPage() {
                   stat.change >= 0 ? 'text-green-400' : 'text-red-400'
                 }`}>
                   {stat.change >= 0 ? (
-                    <TrendingUpIcon className="h-4 w-4 mr-1" />
+                    <ArrowUpIcon className="h-4 w-4 mr-1" />
                   ) : (
-                    <TrendingDownIcon className="h-4 w-4 mr-1" />
+                    <ArrowDownIcon className="h-4 w-4 mr-1" />
                   )}
                   <span>{Math.abs(stat.change)}%</span>
                 </div>

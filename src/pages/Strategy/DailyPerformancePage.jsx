@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUpIcon, CurrencyDollarIcon, UserGroupIcon, FireIcon } from '@heroicons/react/24/outline';
+import { ArrowUpIcon, CurrencyDollarIcon, UserGroupIcon, FireIcon } from '@heroicons/react/24/outline';
 import StatCard from '@/components/ui/StatCard';
 import ProgressCard from '@/components/ui/ProgressCard';
 import ActivityCard from '@/components/ui/ActivityCard';
