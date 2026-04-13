@@ -28,7 +28,7 @@ export default function StrategyPage() {
       description: 'Plan your income, commissions, and bonus targets',
       icon: '💰',
       path: '/strategy/financial-planner',
-      status: 'coming-soon',
+      status: 'live',
       color: 'from-green-500/20 to-green-600/20',
     },
     {
