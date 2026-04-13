@@ -16,8 +16,12 @@ const GoalSheetPage = lazy(() => import('./pages/Strategy/GoalSheetPage'));
 const FinancialPlannerPage = lazy(() => import('./pages/Strategy/FinancialPlannerPage'));
 const AnalyticsPage = lazy(() => import('./pages/Strategy/AnalyticsPage'));
 
-// Other module pages
+// Training pages
 const TrainingPage = lazy(() => import('./pages/Training/TrainingPage'));
+const TrackDetailPage = lazy(() => import('./pages/Training/TrackDetailPage'));
+const SessionDetailPage = lazy(() => import('./pages/Training/SessionDetailPage'));
+
+// Other module pages
 const CoachingPage = lazy(() => import('./pages/Coaching/CoachingPage'));
 const ResourcesPage = lazy(() => import('./pages/Resources/ResourcesPage'));
 
@@ -54,6 +58,8 @@ function App() {
             <Route path="strategy/financial-planner" element={<FinancialPlannerPage />} />
             <Route path="strategy/analytics" element={<AnalyticsPage />} />
             <Route path="training" element={<TrainingPage />} />
+            <Route path="training/track/:trackId" element={<TrackDetailPage />} />
+            <Route path="training/session/:contentId" element={<SessionDetailPage />} />
             <Route path="coaching" element={<CoachingPage />} />
             <Route path="resources" element={<ResourcesPage />} />
           </Route>
