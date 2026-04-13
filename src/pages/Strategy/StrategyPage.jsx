@@ -37,7 +37,7 @@ export default function StrategyPage() {
       description: 'Visualize your performance trends and identify improvement areas',
       icon: '📊',
       path: '/strategy/analytics',
-      status: 'coming-soon',
+      status: 'live',
       color: 'from-purple-500/20 to-purple-600/20',
     },
   ];
