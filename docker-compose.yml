@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  vcsavibes:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://vcsa-production-backend:8000
+    container_name: vcsavibes-frontend
+    restart: unless-stopped
+    ports:
+      - "3003:80"
+    networks:
+      - vcsa-production_vcsa-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    environment:
+      - NODE_ENV=production
+
+networks:
+  vcsa-production_vcsa-network:
+    external: true

@@ -9,9 +9,19 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const LoginPage = lazy(() => import('./pages/Auth/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/Auth/RegisterPage'));
 
-// Placeholder pages - will be implemented
+// Strategy pages
 const StrategyPage = lazy(() => import('./pages/Strategy/StrategyPage'));
+const DailyPerformancePage = lazy(() => import('./pages/Strategy/DailyPerformancePage'));
+const GoalSheetPage = lazy(() => import('./pages/Strategy/GoalSheetPage'));
+const FinancialPlannerPage = lazy(() => import('./pages/Strategy/FinancialPlannerPage'));
+const AnalyticsPage = lazy(() => import('./pages/Strategy/AnalyticsPage'));
+
+// Training pages
 const TrainingPage = lazy(() => import('./pages/Training/TrainingPage'));
+const TrackDetailPage = lazy(() => import('./pages/Training/TrackDetailPage'));
+const SessionDetailPage = lazy(() => import('./pages/Training/SessionDetailPage'));
+
+// Other module pages
 const CoachingPage = lazy(() => import('./pages/Coaching/CoachingPage'));
 const ResourcesPage = lazy(() => import('./pages/Resources/ResourcesPage'));
 
@@ -43,7 +53,13 @@ function App() {
           >
             <Route index element={<HomePage />} />
             <Route path="strategy" element={<StrategyPage />} />
+            <Route path="strategy/daily-performance" element={<DailyPerformancePage />} />
+            <Route path="strategy/goal-sheet" element={<GoalSheetPage />} />
+            <Route path="strategy/financial-planner" element={<FinancialPlannerPage />} />
+            <Route path="strategy/analytics" element={<AnalyticsPage />} />
             <Route path="training" element={<TrainingPage />} />
+            <Route path="training/track/:trackId" element={<TrackDetailPage />} />
+            <Route path="training/session/:contentId" element={<SessionDetailPage />} />
             <Route path="coaching" element={<CoachingPage />} />
             <Route path="resources" element={<ResourcesPage />} />
           </Route>

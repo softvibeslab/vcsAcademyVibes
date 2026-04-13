@@ -1,6 +1,47 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default function StrategyPage() {
+  const modules = [
+    {
+      id: 'daily-performance',
+      title: 'Daily Performance',
+      description: 'Track your daily sales metrics, tours, and closing rates',
+      icon: '📈',
+      path: '/strategy/daily-performance',
+      status: 'live',
+      color: 'from-blue-500/20 to-blue-600/20',
+    },
+    {
+      id: 'goal-sheet',
+      title: 'Goal Sheet',
+      description: 'Set and track your sales, revenue, and personal development goals',
+      icon: '🎯',
+      path: '/strategy/goal-sheet',
+      status: 'live',
+      color: 'from-gold/20 to-gold-light/20',
+    },
+    {
+      id: 'financial-planner',
+      title: 'Financial Planner',
+      description: 'Plan your income, commissions, and bonus targets',
+      icon: '💰',
+      path: '/strategy/financial-planner',
+      status: 'live',
+      color: 'from-green-500/20 to-green-600/20',
+    },
+    {
+      id: 'analytics',
+      title: 'Analytics',
+      description: 'Visualize your performance trends and identify improvement areas',
+      icon: '📊',
+      path: '/strategy/analytics',
+      status: 'live',
+      color: 'from-purple-500/20 to-purple-600/20',
+    },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -19,68 +60,52 @@ export default function StrategyPage() {
 
       {/* Module Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Daily Performance */}
-        <div className="bg-background-alt border border-border rounded-lg p-6 hover:border-gold/50 transition-colors">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="h-10 w-10 rounded-lg bg-gold/10 flex items-center justify-center">
-              <svg className="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
+        {modules.map((module) => (
+          <Link
+            key={module.id}
+            to={module.path}
+            className={`block bg-gradient-to-br ${module.color} border border-border rounded-lg p-6 hover:border-gold/50 transition-all group`}
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center space-x-3">
+                <div className="h-12 w-12 rounded-lg bg-background/50 flex items-center justify-center text-2xl">
+                  {module.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-text-primary">{module.title}</h3>
+                  {module.status === 'live' && (
+                    <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">
+                      Live
+                    </span>
+                  )}
+                </div>
+              </div>
+              <ArrowRightIcon className="h-5 w-5 text-text-secondary group-hover:text-gold group-hover:translate-x-1 transition-all" />
             </div>
-            <h3 className="text-xl font-semibold text-text-primary">Daily Performance</h3>
-          </div>
-          <p className="text-text-secondary text-sm">
-            Track your daily sales metrics, tours, and closing rates
-          </p>
-          <div className="mt-4 text-sm text-gold">Coming Soon</div>
-        </div>
+            <p className="text-text-secondary text-sm">{module.description}</p>
+            {module.status === 'coming-soon' && (
+              <div className="mt-4 text-sm text-gold">Coming Soon</div>
+            )}
+          </Link>
+        ))}
+      </div>
 
-        {/* Goal Sheet */}
-        <div className="bg-background-alt border border-border rounded-lg p-6 hover:border-gold/50 transition-colors">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="h-10 w-10 rounded-lg bg-gold/10 flex items-center justify-center">
-              <svg className="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-text-primary">Goal Sheet</h3>
+      {/* Quick Stats */}
+      <div className="bg-background-alt border border-border rounded-lg p-6">
+        <h2 className="text-xl font-semibold text-text-primary mb-4">Your Progress This Week</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="text-center p-4 bg-white/5 rounded-lg">
+            <p className="text-3xl font-bold text-gold">$45,200</p>
+            <p className="text-text-secondary text-sm mt-1">Weekly Volume</p>
           </div>
-          <p className="text-text-secondary text-sm">
-            Set and track your sales, revenue, and personal development goals
-          </p>
-          <div className="mt-4 text-sm text-gold">Coming Soon</div>
-        </div>
-
-        {/* Financial Planner */}
-        <div className="bg-background-alt border border-border rounded-lg p-6 hover:border-gold/50 transition-colors">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="h-10 w-10 rounded-lg bg-gold/10 flex items-center justify-center">
-              <svg className="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-text-primary">Financial Planner</h3>
+          <div className="text-center p-4 bg-white/5 rounded-lg">
+            <p className="text-3xl font-bold text-gold">12</p>
+            <p className="text-text-secondary text-sm mt-1">Sales</p>
           </div>
-          <p className="text-text-secondary text-sm">
-            Plan your income, commissions, and bonus targets
-          </p>
-          <div className="mt-4 text-sm text-gold">Coming Soon</div>
-        </div>
-
-        {/* Analytics */}
-        <div className="bg-background-alt border border-border rounded-lg p-6 hover:border-gold/50 transition-colors">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="h-10 w-10 rounded-lg bg-gold/10 flex items-center justify-center">
-              <svg className="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-text-primary">Analytics</h3>
+          <div className="text-center p-4 bg-white/5 rounded-lg">
+            <p className="text-3xl font-bold text-gold">5</p>
+            <p className="text-text-secondary text-sm mt-1">Day Streak</p>
           </div>
-          <p className="text-text-secondary text-sm">
-            Visualize your performance trends and identify improvement areas
-          </p>
-          <div className="mt-4 text-sm text-gold">Coming Soon</div>
         </div>
       </div>
     </motion.div>
