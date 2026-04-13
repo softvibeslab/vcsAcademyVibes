@@ -12,6 +12,7 @@ const RegisterPage = lazy(() => import('./pages/Auth/RegisterPage'));
 // Strategy pages
 const StrategyPage = lazy(() => import('./pages/Strategy/StrategyPage'));
 const DailyPerformancePage = lazy(() => import('./pages/Strategy/DailyPerformancePage'));
+const GoalSheetPage = lazy(() => import('./pages/Strategy/GoalSheetPage'));
 
 // Other module pages
 const TrainingPage = lazy(() => import('./pages/Training/TrainingPage'));
@@ -47,6 +48,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="strategy" element={<StrategyPage />} />
             <Route path="strategy/daily-performance" element={<DailyPerformancePage />} />
+            <Route path="strategy/goal-sheet" element={<GoalSheetPage />} />
             <Route path="training" element={<TrainingPage />} />
             <Route path="coaching" element={<CoachingPage />} />
             <Route path="resources" element={<ResourcesPage />} />

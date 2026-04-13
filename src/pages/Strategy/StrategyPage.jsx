@@ -19,7 +19,7 @@ export default function StrategyPage() {
       description: 'Set and track your sales, revenue, and personal development goals',
       icon: '🎯',
       path: '/strategy/goal-sheet',
-      status: 'coming-soon',
+      status: 'live',
       color: 'from-gold/20 to-gold-light/20',
     },
     {
