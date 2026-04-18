@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   vcsavibes:
     build:
@@ -13,8 +11,23 @@ services:
       - "3003:80"
     networks:
       - vcsa-production_vcsa-network
+      - traefik_network
+    labels:
+      # Traefik configuration
+      - "traefik.enable=true"
+      - "traefik.http.routers.vcsavibes.rule=Host(`vcsavibes.softvibeslab.com`) || Host(`vibes.vcsa.softvibeslab.com`)"
+      - "traefik.http.routers.vcsavibes.entrypoints=web"
+      - "traefik.http.routers.vcsavibes.tls=true"
+      - "traefik.http.routers.vcsavibes.tls.certresolver=letsencrypt"
+      - "traefik.http.services.vcsavibes.loadbalancer.server.port=80"
+      - "traefik.http.routers.vcsavibes-https.rule=Host(`vcsavibes.softvibeslab.com`) || Host(`vibes.vcsa.softvibeslab.com`)"
+      - "traefik.http.routers.vcsavibes-https.entrypoints=websecure"
+      - "traefik.http.routers.vcsavibes-https.tls=true"
+      - "traefik.http.routers.vcsavibes-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.vcsavibes-https.service=vcsavibes"
+      - "traefik.http.services.vcsavibes.loadbalancer.server.port=80"
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/health"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1/health"]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -24,4 +37,7 @@ services:
 
 networks:
   vcsa-production_vcsa-network:
+    external: true
+  traefik_network:
+    name: traefik_network
     external: true
